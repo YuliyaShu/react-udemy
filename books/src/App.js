@@ -22,7 +22,7 @@ async function App() {
     useEffect(() => {
         fetchBooks();
     }, []);
-    
+
     const editBookById = ({id, title}) => {
         const updatedBooks = books.map((book) => {
             if (book.id === id) {
