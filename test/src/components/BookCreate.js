@@ -1,12 +1,14 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import BooksContext from "../contexts/books";
 
-function BookCreate({ onCreate }) {
+function BookCreate() {
     const [title, setTitle] = useState('');
+    const { createBook } = useContext(BooksContext);
     const handleChange = (event) => setTitle(event.target.value);
     const handleSubmit = async (event) => {
         event.preventDefault();
-        const newTitleReady = await onCreate(title);
-        if (newTitleReady) {
+        const createBookResponse = await createBook(title);
+        if (createBookResponse) {
             setTitle('');
           } else {
             console.log("Fetch error");
