@@ -3,10 +3,14 @@ import { useState } from "react";
 function BookCreate({ onCreate }) {
     const [title, setTitle] = useState('');
     const handleChange = (event) => setTitle(event.target.value);
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
-        onCreate(title);
-        setTitle('');
+        const newTitleReady = await onCreate(title);
+        if (newTitleReady) {
+            setTitle('');
+          } else {
+            console.log("Fetch error");
+          }
     }
 
     return(
