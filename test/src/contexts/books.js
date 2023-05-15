@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const { createContext, useState } = require("react");
+const { createContext, useState, useCallback } = require("react");
 
 const BooksContext = createContext();
 
@@ -15,6 +15,7 @@ function Provider({ children }) {
         setBooks(response.data);
       }
   }
+  const stableFetchBooks = useCallback(fetchBooks, []);
     
   const createBook = async (title) => {
     try {
@@ -65,7 +66,8 @@ const valueToShare = {
     deleteBookById,
     editBookById,
     createBook,
-    fetchBooks
+    fetchBooks,
+    stableFetchBooks
 };
 
     return <BooksContext.Provider value={valueToShare}>

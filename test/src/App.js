@@ -4,8 +4,11 @@ import BookCreate from "./components/BookCreate";
 import BooksContext from "./contexts/books";
 
 function App() {
-  const { fetchBooks } = useContext(BooksContext);
-  useEffect(() => fetchBooks(), []);
+  const { stableFetchBooks } = useContext(BooksContext);
+  
+  useEffect(() => {
+    stableFetchBooks();
+  } , [stableFetchBooks]);
 
   return (
     <div className="app">
