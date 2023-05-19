@@ -1,29 +1,25 @@
 import './App.css';
-import Button from './Button';
+import Accordion from './components/Accordion';
 
 function App() {
-  const handleCLick = () => {
-    console.log('click');
-  }
-  return (
-    <div className="App">
-      <div>
-        <Button primary onClick={handleCLick} className='mb-5'>Text</Button>
-      </div>
-      <div>
-        <Button secondary outline>Text</Button>
-      </div>
-      <div>
-        <Button success rounded outline>Text</Button>
-      </div>
-      <div>
-        <Button warning rounded>Text</Button>
-      </div>
-      <div>
-        <Button danger rounded>Text</Button>
-      </div>
-    </div>
-  );
+  const items = [
+    {
+      label: 'Label 1',
+      content: 'Content 1',
+      id:'1'
+    },
+    {
+      label: 'Label 2',
+      content: 'Content 2',
+      id:'2'
+    },
+    {
+      label: 'Label 3',
+      content: 'Content 3',
+      id:'3'
+    }
+  ]
+  return <Accordion items={items}/>
 }
 
 export default App;
