@@ -3,9 +3,9 @@ import { useState } from "react";
 function Accordion({ items }) {
     const [expandedIndex, setExpandedIndex] = useState(null);
     const handleClick = (index) => {
-        (expandedIndex === index) 
-            ? setExpandedIndex(null)
-            : setExpandedIndex(index);
+        setExpandedIndex((currentExtendedIndex) => {
+            return (currentExtendedIndex === index) ? null : index
+        })
     } 
     const renderedItems = items.map((item, index) => {
         const isExpanded = index === expandedIndex;
