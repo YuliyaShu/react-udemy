@@ -1,23 +1,27 @@
-import logo from './logo.svg';
 import './App.css';
+import Button from './Button';
 
 function App() {
+  const handleCLick = () => {
+    console.log('click');
+  }
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div>
+        <Button primary onClick={handleCLick} className='mb-5'>Text</Button>
+      </div>
+      <div>
+        <Button secondary outline>Text</Button>
+      </div>
+      <div>
+        <Button success rounded outline>Text</Button>
+      </div>
+      <div>
+        <Button warning rounded>Text</Button>
+      </div>
+      <div>
+        <Button danger rounded>Text</Button>
+      </div>
     </div>
   );
 }
