@@ -1,25 +1,16 @@
+import { useState } from 'react';
 import './App.css';
-import Accordion from './components/Accordion';
+import Dropdown from './components/Dropdown';
 
 function App() {
-  const items = [
-    {
-      label: 'Label 1',
-      content: 'Content 1',
-      id:'1'
-    },
-    {
-      label: 'Label 2',
-      content: 'Content 2',
-      id:'2'
-    },
-    {
-      label: 'Label 3',
-      content: 'Content 3',
-      id:'3'
-    }
+  const [selection, setSelection] = useState(null);
+  const handleSelection = (option) => setSelection(option);
+  const options = [
+    { label: 'Text 1', value: '1' },
+    { label: 'Text 2', value: '2' },
+    { label: 'Text 3', value: '3' }
   ]
-  return <Accordion items={items}/>
+  return <Dropdown options={options} value={selection} onChange={handleSelection}/>
 }
 
 export default App;
