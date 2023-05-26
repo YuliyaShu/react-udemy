@@ -1,4 +1,3 @@
-import './App.css';
 import Button from '../components/Button';
 
 function ButtonPage() {
@@ -8,7 +7,7 @@ function ButtonPage() {
   return (
     <div className="App">
       <div>
-        <Button primary onClick={handleCLick} className='mb-5'>Text</Button>
+        <Button primary onClick={handleCLick} >Text</Button>
       </div>
       <div>
         <Button secondary outline>Text</Button>
