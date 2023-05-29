@@ -46,8 +46,6 @@ function Button({
         classes += 'text-red-500 ';
     }
 
-    console.log(classes);
-  
     return <button {...rest} className={classes}>
                 {children}
             </button>
